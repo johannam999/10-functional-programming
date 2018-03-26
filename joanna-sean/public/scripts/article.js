@@ -47,7 +47,7 @@ var app = app || {};
       })
   };
 
-  // DONE: Chain together a .map() and a .reduce() call to get a rough count of all words in all articles. Yes, you have to do it this way.
+  // DONE: Chain together a .map() and a .reduce() call to get a rough count of all words in all articles. Yes, you have to do it this way. DONE
 
 
   Article.numWordsAll = () => {
