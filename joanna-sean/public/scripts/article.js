@@ -51,9 +51,8 @@ var app = app || {};
 
 
   Article.numWordsAll = () => {
-    return Article.all.map(ele => ele.body.split(' ').length).reduce( (acc, curr) =>{
-      return acc + curr;
-    })
+    return Article.all.map(ele => ele.body.match(/\b\w+/g).length).reduce( (acc, curr) =>
+      acc + curr)
   };
 
   // DONE: Chain together a .map() and a .reduce() call to produce an array of unique author names. You will probably need to use the optional accumulator argument in your reduce call.
@@ -71,10 +70,10 @@ var app = app || {};
     let test =Article.allAuthors();
     return test.map(author => {
       return {
-      name: author,
-      numWords: Article.all.filter(a=> a.author===author)
-      .map(a=>a.body.match(/\b\w+/g).length)
-      .reduce( (acc, curr) =>acc+curr)
+        name: author,
+        numWords: Article.all.filter(a=> a.author===author)
+          .map(a=>a.body.match(/\b\w+/g).length)
+          .reduce( (acc, curr) =>acc+curr)
       };
     })
   // TODO: Transform each author string into an object with properties for the author's name, as well as the total number of words across all articles written by the specified author.
